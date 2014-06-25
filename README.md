@@ -25,15 +25,15 @@ $ yo python-package
 
 ## Current features
 
-* Allows selection of supported python versions;
-* Uses nosetests to run your tests;
+* Allows selection of supported python versions (2.6, 2.7, 3.2, 3.3, 3.4, pypy);
+* Uses [nosetests](https://nose.readthedocs.org/en/latest/) to run your tests;
 * Creates base class for tests;
-* Uses and configures coverage for test coverage;
-* Uses preggy for expectations;
-* Uses tox to run all your tests;
+* Uses and configures [coverage](http://nedbatchelder.com/code/coverage/) for test coverage;
+* Uses [preggy](http://heynemann.github.io/preggy/) for expectations;
+* Uses [tox](http://tox.readthedocs.org/en/latest/) to run tests against all the supported python versions;
 * Allows selections of services your app requires (currently supported: mongodb and redis);
 * Sets up a setup.py file with all the collected information and test dependencies;
-* Creates travis.yml file that runs tests;
+* Creates [travis.yml](http://travis-ci.org) file that runs tests;
 * Creates Makefile to support all the above features.
 
 ## Makefile
