@@ -68,8 +68,9 @@ mongo_test: kill_mongo_test
 kill_mongo_test:
 	@-ps aux | egrep -i 'mongod.+3334' | egrep -v egrep | awk '{ print $$2 }' | xargs kill -9
 <% } %>
+# run tests against all supported python versions
 tox:
 	@tox
 
 #docs:
-	#@cd <%= package.name %>/docs && make html && open _build/html/index.html
+	#@cd <%= package.pythonName %>/docs && make html && open _build/html/index.html

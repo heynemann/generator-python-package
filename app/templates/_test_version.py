@@ -10,7 +10,7 @@
 
 from preggy import expect
 
-from <%= package.name %> import __version__
+from <%= package.pythonName %> import __version__
 from tests.base import TestCase
 
 

@@ -10,7 +10,7 @@
 
 
 from setuptools import setup, find_packages
-from <%= package.name %> import __version__
+from <%= package.pythonName %> import __version__
 
 tests_require = [
     'mock',
@@ -57,7 +57,7 @@ setup(
     entry_points={
         'console_scripts': [
             # add cli scripts here in this form:
-            # '<%= package.name %>=<%= package.name %>.cli:main',
+            # '<%= package.name %>=<%= package.pythonName %>.cli:main',
         ],
     },
 )

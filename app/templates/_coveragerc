@@ -3,7 +3,7 @@ omit =
     *tests.py
 branch = True
 source =
-    <%= package.name %>
+    <%= package.pythonName %>
 
 [report]
 exclude_lines =

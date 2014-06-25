@@ -141,8 +141,11 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
           }
         }
 
+        var pythonPackageName = props.packageName.replace(/(\s|-)+/g, '_');
+
         this.package = {
           name: props.packageName,
+          pythonName: pythonPackageName,
           author: {
             name: props.authorName,
             email: props.authorEmail
@@ -171,7 +174,7 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
 
   app: function () {
     var pkg = this.package;
-    this.mkdir(pkg.name);
+    this.mkdir(pkg.pythonName);
     this.mkdir('tests/');
 
     // root
@@ -188,8 +191,8 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
     }
 
     // pkg.name/
-    this.template('_root_init.py', pkg.name + '/__init__.py');
-    this.template('_version.py', pkg.name + '/version.py');
+    this.template('_root_init.py', pkg.pythonName + '/__init__.py');
+    this.template('_version.py', pkg.pythonName + '/version.py');
 
     // tests/
     this.template('_init.py', 'tests/__init__.py');
@@ -222,8 +225,9 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
       this.log('* "make mongo-test" to get a mongodb instance up for your unit tests (localhost:3334);');
       this.log('* "make kill-mongo-test" to kill the test mongodb instance (localhost: 3334);');
     }
-  },
 
+    this.log('* "make tox" to run tests against all supported python versions.');
+  },
 
 });
 
