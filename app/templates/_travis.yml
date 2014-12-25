@@ -1,8 +1,8 @@
 language: python
 
-python:
-  <% for (var i=0; i < package.travis.length; i++) { %>- "<%= package.travis[i] %>"
-  <% } %>
+python:<% for (var i=0; i < package.travis.length; i++) { %>
+    - "<%= package.travis[i] %>"<% } %>
+
 install:
     # install python requirements
     - make setup
