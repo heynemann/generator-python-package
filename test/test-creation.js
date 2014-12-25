@@ -19,18 +19,33 @@ describe('python-package generator', function () {
 
   it('creates expected files', function (done) {
     var expected = [
-      // add files you expect to exist here.
-      '.jshintrc',
-      '.editorconfig'
+      'setup.py',
+      'Makefile',
+      '.coveragerc',
+      'tox.ini',
+      '.gitignore',
+      '.travis.yml',
+      'MANIFEST.in',
+      'redis.conf',
+      'redis.tests.conf',
+      'test_package/__init__.py',
+      'test_package/version.py',
+      'tests/__init__.py',
+      'tests/base.py',
+      'tests/test_version.py',
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': true
+      packageName: 'test-package',
+      pythonVersions: ['2.7@py27@Python :: 2.7'],
+      services: ['mongodb', 'redis'],
     });
+
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
       helpers.assertFile(expected);
       done();
     });
   });
+
 });
