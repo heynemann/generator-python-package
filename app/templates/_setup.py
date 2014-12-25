@@ -42,7 +42,7 @@ setup(
         'License :: OSI Approved :: <%= package.license %> License',
         'Natural Language :: English',
         'Operating System :: Unix',
-        <% for (var i=0; i< package.troves.length; i++) { %>"<%= package.troves[i] %>",
+        <% for (var i=0; i< package.troves.length; i++) { %>'<%= package.troves[i] %>',
         <% } %>'Operating System :: OS Independent',
     ],
     packages=find_packages(),
