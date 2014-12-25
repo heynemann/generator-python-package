@@ -106,6 +106,11 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
         message: 'Include package data',
         default: false
       }, {
+        type: 'confirm',
+        name: 'packageTests',
+        message: 'Include tests to package',
+        default: false
+      }, {
         type: 'checkbox',
         name: 'services',
         message: 'Services you need to run',
@@ -159,6 +164,7 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
           url: props.url,
           license: props.license,
           includePackageData: props.packageData,
+          includePackageTests: props.packageTests,
           created: {
             day: new Date().getDay(),
             month: new Date().getMonth() + 1,
@@ -184,6 +190,10 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
     this.template('_tox.ini', 'tox.ini');
     this.template('_gitignore', '.gitignore');
     this.template('_travis.yml', '.travis.yml');
+
+    if (!pkg.includePackageTests) {
+      this.template('_manifest.in', 'MANIFEST.in');
+    }
 
     if (pkg.services.redis) {
       this.template('_redis.conf', 'redis.conf');
