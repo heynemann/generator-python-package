@@ -8,7 +8,6 @@
 # http://www.opensource.org/licenses/<%= package.license%>-license
 # Copyright (c) <%= package.created.year %> <%= package.author.name %> <%= package.author.email %>
 
-
 from setuptools import setup, find_packages
 from <%= package.pythonName %> import __version__
 

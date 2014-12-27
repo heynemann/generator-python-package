@@ -8,4 +8,4 @@
 # http://www.opensource.org/licenses/<%= package.license%>-license
 # Copyright (c) <%= package.created.year %> <%= package.author.name %> <%= package.author.email %>
 
-__version__ = '<%= package.version %>'
+__version__ = '<%= package.version %>'  # NOQA
