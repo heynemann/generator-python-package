@@ -24,7 +24,7 @@ unit:
 
 # show coverage in html format
 coverage-html: unit
-	@coverage html -d cover
+	@coverage html
 <% if (package.services.redis) { %>
 # get a redis instance up (localhost:4444)
 redis: kill_redis
