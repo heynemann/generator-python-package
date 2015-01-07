@@ -6,4 +6,4 @@
 
 # Licensed under the <%= package.license %> license:
 # http://www.opensource.org/licenses/<%= package.license%>-license
-# Copyright (c) <%= package.created.year %> <%= package.author.name %> <%= package.author.email %>
+# Copyright (c) <%= package.created.year %>, <%= package.author.name %> <<%= package.author.email %>>
