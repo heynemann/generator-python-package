@@ -5,8 +5,4 @@
 # http://www.opensource.org/licenses/<%= package.license%>-license
 # Copyright (c) <%= package.created.year %> <%= package.author.name %> <%= package.author.email %>
 
-daemonize yes
-pidfile /tmp/redis_<%= package.name %>_tests.pid
-port 4448
-dbfilename <%= package.name %>_tests.rdb
-dir /tmp
+recursive-exclude tests *

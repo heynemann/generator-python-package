@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # This file is part of <%= package.name %>.
@@ -9,6 +9,7 @@
 # Copyright (c) <%= package.created.year %> <%= package.author.name %> <%= package.author.email %>
 
 from unittest import TestCase as PythonTestCase
+
 
 class TestCase(PythonTestCase):
     pass

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # This file is part of <%= package.name %>.
@@ -8,4 +8,4 @@
 # http://www.opensource.org/licenses/<%= package.license%>-license
 # Copyright (c) <%= package.created.year %> <%= package.author.name %> <%= package.author.email %>
 
-__version__ = "<%= package.version %>"
+__version__ = '<%= package.version %>'  # NOQA

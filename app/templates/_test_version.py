@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # This file is part of <%= package.name %>.
@@ -16,4 +16,4 @@ from tests.base import TestCase
 
 class VersionTestCase(TestCase):
     def test_has_proper_version(self):
-        expect(__version__).to_equal("<%= package.version %>")
+        expect(__version__).to_equal('<%= package.version %>')

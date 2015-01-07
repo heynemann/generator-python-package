@@ -4,14 +4,12 @@
 # Licensed under the <%= package.license %> license:
 # http://www.opensource.org/licenses/<%= package.license%>-license
 # Copyright (c) <%= package.created.year %> <%= package.author.name %> <%= package.author.email %>
-#
 
 # lists all available targets
 list:
 	@sh -c "$(MAKE) -p no_targets__ | awk -F':' '/^[a-zA-Z0-9][^\$$#\/\\t=]*:([^=]|$$)/ {split(\$$1,A,/ /);for(i in A)print A[i]}' | grep -v '__\$$' | grep -v 'make\[1\]' | grep -v 'Makefile' | sort"
 # required for list
 no_targets__:
-
 
 # install all dependencies (do not forget to create a virtualenv first)
 setup:
@@ -26,7 +24,7 @@ unit:
 
 # show coverage in html format
 coverage-html: unit
-	@coverage html -d cover
+	@coverage html
 <% if (package.services.redis) { %>
 # get a redis instance up (localhost:4444)
 redis: kill_redis
@@ -45,8 +43,8 @@ redis_test: kill_redis_test
 # kill the test redis instance (localhost:4448)
 kill_redis_test:
 	@-redis-cli -p 4448 shutdown
-<% } %>
-<% if (package.services.mongodb) { %>
+<% }
+if (package.services.mongodb) { %>
 # get a mongodb instance up (localhost:3333)
 mongo: kill_mongo
 	@mkdir -p /tmp/<%= package.name %>/mongodata && mongod --dbpath /tmp/<%= package.name %>/mongodata --logpath /tmp/<%= package.name %>/mongolog --port 3333 --quiet &
