@@ -8,7 +8,7 @@
 Make sure you have the latest version of [Yeoman](http://yeoman.io):
 
 ```bash
-$ npm install -g yeoman
+$ npm install -g yo
 ```
 
 To install generator-python-package from npm, run:
