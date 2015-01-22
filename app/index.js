@@ -36,10 +36,12 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
     this.pkg = require('../package.json');
   },
 
-  askFor: function () {
+  askFor: function (mute, callback) {
     var done = this.async();
 
-    this.log(yosay('Welcome to the python package generator\nRun this generator in the folder where your app will be created'));
+    if (!mute) {
+      this.log(yosay('Welcome to the python package generator\nRun this generator in the folder where your app will be created'));
+    }
 
     var pythonVersions = [
       { name: "Python 2.6", value: "2.6@py26@Python :: 2.6", checked: false },
@@ -173,13 +175,17 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
           services: pkgServices
         };
 
-        done();
+        if (callback) {
+          callback(this.package);
+        } else {
+          done();
+        }
       }.bind(this));
     }.bind(this));
   },
 
-  app: function () {
-    var pkg = this.package;
+  app: function (currentPkg) {
+    var pkg = currentPkg || this.package;
     this.mkdir(pkg.pythonName);
     this.mkdir('tests/');
 
