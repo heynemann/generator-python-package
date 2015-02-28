@@ -29,6 +29,18 @@ function getUserNameAndEmail(callback) {
   });
 }
 
+function guessPackageURL(answers) {
+  var emailParts = answers.authorEmail.split('@');
+  if (emailParts.length > 1) {
+    return 'https://github.com/' + emailParts[0] + '/' + answers.packageName
+  }
+  return 'https://github.com/someuser/somepackage';
+}
+
+function escapeQuotes(answer) {
+  return answer.replace(/[\\"']/g, '\\$&').replace(/\u0000/g, '\\0');
+}
+
 var currentPath = path.basename(process.cwd());
 
 var PythonPackageGenerator = yeoman.generators.Base.extend({
@@ -67,7 +79,8 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
         type: 'input',
         name: 'authorName',
         message: 'Package author name',
-        default: userName
+        default: userName,
+        filter: escapeQuotes
       }, {
         type: 'input',
         name: 'authorEmail',
@@ -87,11 +100,13 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
         type: 'input',
         name: 'description',
         message: 'Package description (please be sure to update long_description in setup.py later):',
-        default: 'an incredible python package'
+        default: 'an incredible python package',
+        filter: escapeQuotes
       }, {
         type: 'input',
         name: 'keywords',
-        message: 'Package keywords (space separated keywords):'
+        message: 'Package keywords (space separated keywords):',
+        filter: escapeQuotes
       }, {
         type: 'input',
         name: 'url',
@@ -101,7 +116,8 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
         type: 'input',
         name: 'license',
         message: 'Package license:',
-        default: 'MIT'
+        default: 'MIT',
+        filter: escapeQuotes
       }, {
         type: 'confirm',
         name: 'packageData',
