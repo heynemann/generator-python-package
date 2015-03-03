@@ -111,7 +111,7 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
         type: 'input',
         name: 'url',
         message: 'Package url (this url gets included in pypi):',
-        default: 'https://github.com/someuser/somepackage'
+        default: guessPackageURL
       }, {
         type: 'input',
         name: 'license',
