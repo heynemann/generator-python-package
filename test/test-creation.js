@@ -88,6 +88,8 @@ describe('python-package generator', function () {
       helpers.assertFileContent('setup.py', /    license='MIT',/);
       helpers.assertFileContent('setup.py', /        'Programming Language :: Python :: 2.7',/);
       helpers.assertFileContent('setup.py', /    include_package_data=False,/);
+      helpers.assertFileContent('setup.py', /        'pymongo',/);
+      helpers.assertFileContent('setup.py', /        'redis',/);
       done();
     });
   });

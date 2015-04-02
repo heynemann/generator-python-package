@@ -50,6 +50,9 @@ setup(
         # add your dependencies here
         # remember to use 'package-name>=x.y.z,<x.(y+1).0' notation
         # (this way you get bugfixes but no breaking changes)
+<%= package.services.mongodb ? "        'pymongo',\n" : ""
+%><%= package.services.redis ? "        'redis',\n" : ""
+%>    ],
     extras_require={
         'tests': tests_require,
     },
