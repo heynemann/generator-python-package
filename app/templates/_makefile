@@ -1,10 +1,3 @@
-# This file is part of <%= package.name %>.
-# <%= package.url %>
-
-# Licensed under the <%= package.license %> license:
-# http://www.opensource.org/licenses/<%= package.license%>-license
-# Copyright (c) <%= package.created.year %>, <%= package.author.name %> <<%= package.author.email %>>
-
 # lists all available targets
 list:
 	@sh -c "$(MAKE) -p no_targets__ | awk -F':' '/^[a-zA-Z0-9][^\$$#\/\\t=]*:([^=]|$$)/ {split(\$$1,A,/ /);for(i in A)print A[i]}' | grep -v '__\$$' | grep -v 'make\[1\]' | grep -v 'Makefile' | sort"
