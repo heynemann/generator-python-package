@@ -226,7 +226,6 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
 
     // pkg.name/
     this.template('_root_init.py', pkg.pythonName + '/__init__.py');
-    this.template('_version.py', pkg.pythonName + '/version.py');
 
     // tests/
     this.template('_init.py', 'tests/__init__.py');
