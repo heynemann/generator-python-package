@@ -56,11 +56,13 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
     }
 
     var pythonVersions = [
-      { name: "Python 2.6", value: "2.6@py26@Python :: 2.6", checked: false },
       { name: "Python 2.7", value: "2.7@py27@Python :: 2.7", checked: true },
       { name: "Python 3.2", value: "3.2@py32@Python :: 3.2", checked: false },
       { name: "Python 3.3", value: "3.3@py33@Python :: 3.3", checked: false },
-      { name: "Python 3.4", value: "3.4@py34@Python :: 3.4", checked: true },
+      { name: "Python 3.4", value: "3.4@py34@Python :: 3.4", checked: false },
+      { name: "Python 3.5", value: "3.5@py35@Python :: 3.5", checked: true },
+      { name: "Python 3.6", value: "3.6@py36@Python :: 3.6", checked: true },
+      { name: "Python 3.7", value: "3.7@py37@Python :: 3.7", checked: true },
       { name: "PyPy", value: "pypy@pypy@Python :: Implementation :: PyPy", checked: true },
     ];
 
@@ -212,6 +214,7 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
     this.template('_tox.ini', 'tox.ini');
     this.template('_gitignore', '.gitignore');
     this.template('_travis.yml', '.travis.yml');
+    this.template('_editorconfig', '.editorconfig');
 
     if (!pkg.includePackageTests) {
       this.template('_manifest.in', 'MANIFEST.in');
@@ -224,7 +227,6 @@ var PythonPackageGenerator = yeoman.generators.Base.extend({
 
     // pkg.name/
     this.template('_root_init.py', pkg.pythonName + '/__init__.py');
-    this.template('_version.py', pkg.pythonName + '/version.py');
 
     // tests/
     this.template('_init.py', 'tests/__init__.py');

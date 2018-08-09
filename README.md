@@ -17,6 +17,13 @@ To install generator-python-package from npm, run:
 $ npm install -g generator-python-package
 ```
 
+Install ``kxxoling/generator-python-package``：
+
+```bash
+$ git clone https://github.com/kxxoling/generator-python-package.git
+$ cd generator-python-package && npm link
+```
+
 Finally, initiate the generator:
 
 ```bash
